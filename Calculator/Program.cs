@@ -2,16 +2,16 @@
 
 namespace Calculator
 {
-    class Program
+    internal static class Program
     {
-        static void Main(string[] args)
+        private static void Main()
         {
             Soma();
             Subtracao();
             Divisao();
         }
 
-        static void Soma()
+        private static void Soma()
         {
             Console.Clear();
             try
@@ -38,7 +38,7 @@ namespace Calculator
             }
         }
 
-        static void Subtracao()
+        private static void Subtracao()
         {
             Console.Clear();
             try
@@ -65,7 +65,7 @@ namespace Calculator
             }
         }
 
-        static void Divisao()
+        private static void Divisao()
         {
             Console.Clear();
             try
