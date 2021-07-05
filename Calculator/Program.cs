@@ -6,9 +6,22 @@ namespace Calculator
     {
         private static void Main()
         {
-            Soma();
-            Subtracao();
-            Divisao();
+            Menu();
+        }
+
+        private static void Menu()
+        {
+            Console.Clear();
+            Console.WriteLine("");
+            Console.WriteLine("O que deseja fazer?");
+            Console.WriteLine("--------------------------");
+            Console.WriteLine("1 - Soma");
+            Console.WriteLine("1 - Subtração");
+            Console.WriteLine("1 - Divisão");
+            Console.WriteLine("1 - Multiplicação");
+            Console.WriteLine("--------------------------");
+            Console.WriteLine("Selecione uma opção:");
+            var res = short.Parse(Console.ReadLine() ?? string.Empty);
         }
 
         private static void Soma()
@@ -90,6 +103,22 @@ namespace Calculator
                 Divisao();
                 throw;
             }
+        }
+
+        private static void Multiplicacao()
+        {
+            Console.WriteLine("Primeiro Valor: ");
+            var v1 = float.Parse(Console.ReadLine() ?? string.Empty);
+            
+            Console.WriteLine("Segundo valor Valor: ");
+            var v2 = float.Parse(Console.ReadLine() ?? string.Empty);
+
+            Console.WriteLine("");
+                
+            var resultado = v1 * v2;
+            Console.WriteLine($"O resultado da Multiplicação é: {resultado}");
+            Console.ReadKey();
+            
         }
     }
 }
