@@ -16,12 +16,21 @@ namespace Calculator
             Console.WriteLine("O que deseja fazer?");
             Console.WriteLine("--------------------------");
             Console.WriteLine("1 - Soma");
-            Console.WriteLine("1 - Subtração");
-            Console.WriteLine("1 - Divisão");
-            Console.WriteLine("1 - Multiplicação");
+            Console.WriteLine("2 - Subtração");
+            Console.WriteLine("3 - Divisão");
+            Console.WriteLine("4 - Multiplicação");
             Console.WriteLine("--------------------------");
             Console.WriteLine("Selecione uma opção:");
             var res = short.Parse(Console.ReadLine() ?? string.Empty);
+
+            switch (res)
+            {
+                case 1: Soma(); break;
+                case 2: Subtracao(); break;
+                case 3: Divisao(); break;
+                case 4: Multiplicacao(); break;
+                default: Menu(); break;
+            }
         }
 
         private static void Soma()
@@ -29,6 +38,10 @@ namespace Calculator
             Console.Clear();
             try
             {
+                Console.WriteLine("");
+                Console.WriteLine("<*> Operação de Soma <*>");
+                Console.WriteLine("--------------------------");
+                
                 Console.WriteLine("Primeiro Valor: ");
                 var v1 = float.Parse(Console.ReadLine() ?? string.Empty);
             
@@ -40,6 +53,7 @@ namespace Calculator
                 var resultado = v1 + v2;
                 Console.WriteLine($"O resultado da soma é: {resultado}");
                 Console.ReadKey();
+                Menu();
             }
             catch (Exception)
             {
@@ -56,6 +70,10 @@ namespace Calculator
             Console.Clear();
             try
             {
+                Console.WriteLine("");
+                Console.WriteLine("<*> Operação de subtração <*>");
+                Console.WriteLine("--------------------------");
+                
                 Console.WriteLine("Primeiro Valor: ");
                 var v1 = float.Parse(Console.ReadLine() ?? string.Empty);
             
@@ -67,6 +85,7 @@ namespace Calculator
                 var resultado = v1 - v2;
                 Console.WriteLine($"O resultado da subtração é: {resultado}");
                 Console.ReadKey();
+                Menu();
             }
             catch (Exception)
             {
@@ -83,6 +102,10 @@ namespace Calculator
             Console.Clear();
             try
             {
+                Console.WriteLine("");
+                Console.WriteLine("<*> Operação de Divisão <*>");
+                Console.WriteLine("--------------------------");
+                
                 Console.WriteLine("Primeiro Valor: ");
                 var v1 = float.Parse(Console.ReadLine() ?? string.Empty);
             
@@ -94,6 +117,7 @@ namespace Calculator
                 var resultado = v1 / v2;
                 Console.WriteLine($"O resultado da Divisão é: {resultado}");
                 Console.ReadKey();
+                Menu();
             }
             catch (Exception)
             {
@@ -107,18 +131,33 @@ namespace Calculator
 
         private static void Multiplicacao()
         {
-            Console.WriteLine("Primeiro Valor: ");
-            var v1 = float.Parse(Console.ReadLine() ?? string.Empty);
+            try
+            {
+                Console.WriteLine("");
+                Console.WriteLine("<*> Operação de Multiplicação <*>");
+                Console.WriteLine("--------------------------");
             
-            Console.WriteLine("Segundo valor Valor: ");
-            var v2 = float.Parse(Console.ReadLine() ?? string.Empty);
+                Console.WriteLine("Primeiro Valor: ");
+                var v1 = float.Parse(Console.ReadLine() ?? string.Empty);
+            
+                Console.WriteLine("Segundo valor Valor: ");
+                var v2 = float.Parse(Console.ReadLine() ?? string.Empty);
 
-            Console.WriteLine("");
+                Console.WriteLine("");
                 
-            var resultado = v1 * v2;
-            Console.WriteLine($"O resultado da Multiplicação é: {resultado}");
-            Console.ReadKey();
-            
+                var resultado = v1 * v2;
+                Console.WriteLine($"O resultado da Multiplicação é: {resultado}");
+                Console.ReadKey();
+                Menu();
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Valor invalido, tente outro valor!");
+                Console.WriteLine("Pressione ENTER para continuar");
+                Console.ReadKey();
+                Multiplicacao();
+                throw;
+            }
         }
     }
 }
