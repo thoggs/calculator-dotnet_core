@@ -1,2 +1,2 @@
 # calculator-dotnet_core
-Projeto pessoal escrito em .NET Core 5
+Projeto pessoal escrito em C# usando o Framework .NET Core 5
